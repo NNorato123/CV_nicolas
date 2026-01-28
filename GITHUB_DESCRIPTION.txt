@@ -1,0 +1,1 @@
+📱 Portafolio CV Profesional | Flask + SQLAlchemy | Blog + Admin Panel | Integración GitHub automática | Responsive Design | Multiidioma
