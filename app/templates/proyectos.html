@@ -58,7 +58,7 @@
         <div class="project-card" 
              data-title="{{ project.title|lower }}" 
              data-description="{{ project.description|lower }}" 
-             data-tech="{{ project.technologies|lower }}">
+             data-tech="{% if project.languages %}{{ project.languages|map(attribute='name')|join(', ')|lower }}{% else %}{{ project.technologies|lower }}{% endif %}">
             {% if project.image_url %}
             <img src="{{ project.image_url }}" alt="{{ project.title }}" class="project-image">
             {% else %}
@@ -267,7 +267,9 @@ function filterProjects() {
         const tech = card.dataset.tech;
 
         const matchesSearch = !searchInput || title.includes(searchInput) || description.includes(searchInput);
-        const matchesTech = !techFilter || tech.includes(techFilter);
+        
+        // Permitir filtrar por cualquier lenguaje en la lista (separados por comas)
+        const matchesTech = !techFilter || tech.split(',').some(t => t.trim().includes(techFilter));
 
         if (matchesSearch && matchesTech) {
             card.style.display = '';
