@@ -58,7 +58,8 @@
         <div class="project-card" 
              data-title="{{ project.title|lower }}" 
              data-description="{{ project.description|lower }}" 
-             data-tech="{{ project.technologies|lower }}">
+             data-tech="{{ ' '.join(project.all_languages_list)|lower }}"
+             data-languages="{{ '|'.join(project.all_languages_list)|lower }}">
             {% if project.image_url %}
             <img src="{{ project.image_url }}" alt="{{ project.title }}" class="project-image">
             {% else %}
@@ -88,15 +89,33 @@
                 
                 <p class="project-description">{{ project.description }}</p>
                 
-                <div class="tech-tags">
-                    {% if project.is_github %}
-                    <span class="tech-tag" style="background: #3b82f6;">{{ project.technologies }}</span>
-                    {% else %}
-                    {% for tech in project.technologies.split(',') %}
-                    <span class="tech-tag">{{ tech.strip() }}</span>
-                    {% endfor %}
-                    {% endif %}
+                <!-- BARRA DE LENGUAJES COMO GITHUB -->
+                {% if project.languages %}
+                <div class="languages-bar">
+                    <div class="languages-bar-container">
+                        {% for lang, percentage in project.languages.items() %}
+                        <div class="language-bar-segment" 
+                             style="width: {{ percentage }}%; background-color: var(--lang-color-{{ loop.index }});"
+                             title="{{ lang }} - {{ percentage }}%"
+                             data-lang="{{ lang }}"
+                             data-percentage="{{ percentage }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="languages-legend">
+                        {% for lang, percentage in project.languages.items() %}
+                        <div class="language-item">
+                            <span class="language-dot" style="background-color: var(--lang-color-{{ loop.index }});"></span>
+                            <span class="language-name">{{ lang }} {{ percentage }}%</span>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
+                {% else %}
+                <div class="tech-tags">
+                    <span class="tech-tag" style="background: #3b82f6;">{{ project.technologies }}</span>
+                </div>
+                {% endif %}
                 
                 <div class="project-links">
                     {% if project.github_url %}
@@ -126,6 +145,22 @@
 </section>
 
 <style>
+/* Colores para lenguajes de programación */
+:root {
+    --lang-color-1: #f1e05a;   /* JavaScript - Amarillo */
+    --lang-color-2: #3572A5;   /* Python - Azul */
+    --lang-color-3: #e34c26;   /* HTML - Rojo */
+    --lang-color-4: #563d7c;   /* CSS - Púrpura */
+    --lang-color-5: #00add8;   /* Go - Cian */
+    --lang-color-6: #ce422b;   /* Ruby - Rojo oscuro */
+    --lang-color-7: #178600;   /* Java - Verde */
+    --lang-color-8: #0db7ed;   /* TypeScript - Azul claro */
+    --lang-color-9: #6A4C93;   /* C# - Púrpura claro */
+    --lang-color-10: #cc342d;  /* C - Rojo oscuro */
+    --lang-color-11: #F7931E;  /* C++ - Naranja */
+    --lang-color-12: #04873b;  /* Kotlin - Verde oscuro */
+}
+
 .filters-container {
     display: grid;
     grid-template-columns: 1fr auto auto;
@@ -209,6 +244,61 @@
     background: rgba(239, 68, 68, 0.25);
 }
 
+/* ESTILOS PARA LA BARRA DE LENGUAJES */
+.languages-bar {
+    margin: 1rem 0;
+}
+
+.languages-bar-container {
+    display: flex;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.language-bar-segment {
+    height: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    min-width: 2px;
+}
+
+.language-bar-segment:hover {
+    opacity: 0.8;
+}
+
+.languages-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.language-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 4px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.language-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.language-name {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
 @media (max-width: 1024px) {
     .filters-container {
         grid-template-columns: 1fr;
@@ -229,6 +319,15 @@
         width: 100%;
         min-width: auto;
     }
+    
+    .languages-legend {
+        gap: 0.5rem;
+    }
+    
+    .language-item {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
+    }
 }
 </style>
 
@@ -242,10 +341,17 @@ function filterProjects() {
     projectCards.forEach(card => {
         const title = card.dataset.title;
         const description = card.dataset.description;
-        const tech = card.dataset.tech;
+        const allLanguages = card.dataset.languages; // Todos los lenguajes separados por |
 
         const matchesSearch = !searchInput || title.includes(searchInput) || description.includes(searchInput);
-        const matchesTech = !techFilter || tech.includes(techFilter);
+        
+        // Filtrar por TODOS los lenguajes, no solo el principal
+        let matchesTech = !techFilter;
+        if (techFilter && allLanguages) {
+            // Dividir los lenguajes y verificar si alguno coincide
+            const languages = allLanguages.split('|');
+            matchesTech = languages.some(lang => lang.toLowerCase().includes(techFilter));
+        }
 
         if (matchesSearch && matchesTech) {
             card.style.display = '';

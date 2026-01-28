@@ -42,13 +42,20 @@ def proyectos():
     
     # Convertir repos de GitHub a formato compatible con template
     projects = []
+    all_languages = set()  # Para recolectar todos los lenguajes
     
     # Agregar repos de GitHub
     for repo in github_repos:
+        # Recolectar todos los lenguajes del repo
+        if repo.get('all_languages_list'):
+            all_languages.update(repo['all_languages_list'])
+        
         projects.append({
             'title': repo['name'],
             'description': repo['description'],
-            'technologies': repo['language'],
+            'technologies': repo['language'],  # Lenguaje principal
+            'languages': repo.get('languages', {}),  # Todos los lenguajes con porcentajes
+            'all_languages_list': repo.get('all_languages_list', []),  # Lista de todos
             'github_url': repo['github_url'],
             'live_url': None,
             'image_url': repo['image_url'],
@@ -57,15 +64,8 @@ def proyectos():
             'stars': repo['stars'],
         })
     
-    # Obtener tecnologías únicas para los filtros
-    all_techs = set()
-    for project in projects:
-        if project['technologies']:
-            # Limpiar y agregar tecnologías
-            techs = [tech.strip() for tech in str(project['technologies']).split(',')]
-            all_techs.update(techs)
-    
-    technologies = sorted(list(all_techs))
+    # Obtener tecnologías únicas para los filtros (TODOS los lenguajes)
+    technologies = sorted(list(all_languages))
     
     return render_template('proyectos.html', projects=projects, technologies=technologies)
 
