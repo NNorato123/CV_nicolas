@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Panel de Administración - Blog{% endblock %}
+
+{% block content %}
+<!-- HEADER -->
+<section style="padding: 3rem 2rem; background: rgba(30, 41, 59, 0.5); border-bottom: 2px solid var(--accent-color);">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+            <div>
+                <h1 style="color: var(--accent-light); margin-bottom: 0.5rem;" data-i18n="admin.titulo">Panel de Administración</h1>
+                <p style="color: var(--text-muted); font-size: 1rem;" data-i18n="admin.subtitulo">Gestiona tus posts del blog</p>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="{{ url_for('main.admin_crear_post') }}" class="btn btn-primary" data-i18n="admin.nuevo_post">+ Nuevo Post</a>
+                <a href="{{ url_for('main.admin_logout') }}" class="btn btn-secondary" data-i18n="admin.cerrar_sesion">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POSTS LIST -->
+<section class="container" style="padding: 4rem 2rem;">
+    {% if posts %}
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <div style="margin-bottom: 2rem;">
+            <h2 style="color: var(--text-light); margin-bottom: 1rem;">Tus Posts ({{ posts|length }})</h2>
+        </div>
+        
+        <div style="display: grid; gap: 1.5rem;">
+            {% for post in posts %}
+            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; transition: var(--transition);" 
+                 onmouseover="this.style.borderColor='var(--accent-color)'; this.style.boxShadow='0 10px 30px rgba(59, 130, 246, 0.2)'"
+                 onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow=''">
+                
+                <div style="flex: 1;">
+                    <h3 style="color: var(--accent-light); margin-bottom: 0.5rem; font-size: 1.3rem;">{{ post.title }}</h3>
+                    
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                        📅 {{ post.created_at.strftime('%d de %B de %Y') }}
+                        {% if post.created_at != post.updated_at %}
+                        <span style="margin-left: 1rem;">✏️ {{ post.updated_at.strftime('%d de %B de %Y') }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    {% if post.summary %}
+                    <p style="color: var(--text-muted); margin: 1rem 0; font-size: 0.95rem;">{{ post.summary }}</p>
+                    {% endif %}
+                    
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">
+                        📝 {{ post.content | length }} caracteres
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: flex-start;">
+                    <a href="{{ url_for('main.blog_post', post_id=post.id) }}" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                        Ver
+                    </a>
+                    <a href="{{ url_for('main.admin_editar_post', post_id=post.id) }}" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                        Editar
+                    </a>
+                    <form method="POST" action="{{ url_for('main.admin_eliminar_post', post_id=post.id) }}" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este post?');">
+                        <button type="submit" class="btn btn-danger" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                            Eliminar
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div style="text-align: center; padding: 4rem 2rem;">
+        <h3 style="color: var(--text-light); margin-bottom: 1rem;">No hay posts aún</h3>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">¡Crea tu primer post para comenzar!</p>
+        <a href="{{ url_for('main.admin_crear_post') }}" class="btn btn-primary">+ Crear Primer Post</a>
+    </div>
+    {% endif %}
+</section>
+
+<!-- CSS para botón de eliminar -->
+<style>
+    .btn-danger {
+        background: rgba(239, 68, 68, 0.2);
+        color: rgb(248, 113, 113);
+        border: 1px solid rgb(239, 68, 68);
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .btn-danger:hover {
+        background: rgba(239, 68, 68, 0.3);
+        box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+    }
+</style>
+{% endblock %}

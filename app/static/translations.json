@@ -1,0 +1,691 @@
+{
+  "es": {
+    "navbar": {
+      "inicio": "Inicio",
+      "proyectos": "Proyectos",
+      "sobre_mi": "Sobre mí",
+      "blog": "Blog",
+      "contacto": "Contacto"
+    },
+    "hero": {
+      "nombre": "Nicolas Andrey Norato Torres",
+      "titulo": "Ingeniero de Software | Desarrollador Full Stack | Desarrollador de Juegos Indie"
+    },
+    "index": {
+      "bienvenido": "Bienvenido a Mi Portfolio",
+      "descripcion": "Soy un ingeniero de software apasionado por crear soluciones innovadoras y escalables",
+      "btn_proyectos": "Ver Mis Proyectos",
+      "btn_contacto": "Contactarme",
+      "proyectos_destacados": "Proyectos Destacados",
+      "ver_mas_proyectos": "Ver todos los proyectos →",
+      "pregunta": "¿Tienes un proyecto en mente?",
+      "disponible": "Estoy disponible para colaborar en nuevos proyectos y desafíos.",
+      "btn_trabajar": "Comencemos a trabajar",
+      "github_link": "GitHub",
+      "live_link": "Ver en vivo"
+    },
+    "sobre_mi": {
+      "titulo": "Sobre Mí",
+      "subtitulo": "Conoce más sobre mi experiencia y habilidades",
+      "intro": "Joven tecnólogo en formación en Sistemas, con conocimientos avanzados en programación Python, desarrollo de videojuegos en Unity e integración de APIs de Inteligencia Artificial. Apasionado por la tecnología e innovación, con experiencia autodidacta en proyectos personales de desarrollo de software y participación en eventos tecnológicos. Me caracterizo por mi adaptabilidad, capacidad de aprendizaje autónomo y pensamiento innovador para resolver problemáticas del mundo real. Aunque mi experiencia profesional inicial proviene del sector de servicios (retail y entretenimiento), he compensado con dedicación y aprendizaje constante en programación. Busco oportunidades que me permitan seguir creciendo profesionalmente en el ámbito tecnológico y contribuir con soluciones innovadoras.",
+      "soft_skills_title": "Habilidades Blandas",
+      "teamwork": "Trabajo en Equipo",
+      "teamwork_desc": "Colaboración efectiva y comunicación clara",
+      "adaptability": "Adaptabilidad",
+      "adaptability_desc": "Aprendizaje autónomo y flexibilidad ante cambios",
+      "creativity": "Creatividad",
+      "creativity_desc": "Resolución innovadora de problemas",
+      "languages_title": "Idiomas",
+      "spanish": "Español",
+      "english": "Inglés",
+      "german": "Alemán",
+      "native": "Nativo",
+      "intermediate": "Intermedio",
+      "basic": "Básico",
+      "main_technologies": "Tecnologías Principales",
+      "habilidades": "Habilidades Técnicas",
+      "experiencia": "Experiencia Profesional",
+      "educacion": "Educación"
+    },
+    "proyectos": {
+      "titulo": "Mis Proyectos",
+      "subtitulo": "Una selección de mis trabajos más destacados",
+      "actualiza_github": "Los proyectos se actualizan automáticamente desde GitHub",
+      "search_placeholder": "🔍 Busca por nombre o descripción...",
+      "filter_label": "Filtrar por tecnología:",
+      "filter_all": "Todas las tecnologías",
+      "btn_clear_filters": "Limpiar filtros",
+      "result_count": "proyectos",
+      "no_proyectos": "No hay proyectos aún",
+      "proyectos_agregados": "Los proyectos aparecerán aquí una vez que se agreguen.",
+      "badge_featured": "DESTACADO",
+      "badge_github": "GitHub",
+      "no_description": "Sin descripción disponible"
+    },
+    "contacto": {
+      "titulo": "Contacto",
+      "subtitulo": "¿Hablamos sobre tu proyecto?",
+      "form_titulo": "Envíame un mensaje",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "github": "GitHub",
+      "construccion": "En construcción",
+      "nombre": "Nombre",
+      "nombre_placeholder": "Tu nombre completo",
+      "email_label": "Email",
+      "email_placeholder": "ejemplo@gmail.com",
+      "asunto": "Asunto",
+      "asunto_placeholder": "¿De qué se trata tu mensaje?",
+      "mensaje": "Mensaje",
+      "mensaje_placeholder": "Escribe tu mensaje aquí...",
+      "btn_enviar": "Enviar Mensaje",
+      "enviando": "Enviando...",
+      "mensaje_exito": "Mensaje enviado correctamente",
+      "mensaje_error": "Error al enviar el mensaje",
+      "respuesta": "Contacto"
+    },
+    "blog": {
+      "titulo": "Mi Blog",
+      "subtitulo": "Pensamientos, ideas y reflexiones sobre desarrollo y tecnología",
+      "leer_mas": "Leer más →",
+      "no_posts": "No hay posts aún",
+      "proximamente": "Próximamente estaré compartiendo mis pensamientos y reflexiones aquí.",
+      "volver": "← Volver al blog"
+    },
+    "admin": {
+      "titulo": "Panel de Administración",
+      "subtitulo": "Gestiona tus posts del blog",
+      "nuevo_post": "+ Nuevo Post",
+      "cerrar_sesion": "Cerrar Sesión",
+      "crear": "Crear Nuevo Post",
+      "editar": "Editar Post",
+      "tus_posts": "Tus Posts",
+      "ver": "Ver",
+      "eliminar": "Eliminar",
+      "caracteres": "caracteres",
+      "no_posts_admin": "No hay posts aún",
+      "crear_primer_post": "¡Crea tu primer post para comenzar!",
+      "titulo_post": "Título del Post",
+      "titulo_placeholder": "Ej: Mi experiencia con Flask",
+      "resumen": "Resumen (opcional)",
+      "resumen_placeholder": "Un breve resumen de tu post...",
+      "contenido": "Contenido del Post",
+      "contenido_placeholder": "Escribe el contenido completo de tu post aquí...",
+      "btn_publicar": "📝 Publicar Post",
+      "btn_guardar": "✅ Guardar Cambios",
+      "volver_panel": "← Volver al Panel",
+      "saltos_linea": "💡 Puedes usar saltos de línea para separar párrafos",
+      "confirmacion_eliminar": "¿Estás seguro de que quieres eliminar este post?",
+      "creado": "📅 Creado:",
+      "actualizado": "✏️ Última edición:",
+      "contrasena_placeholder": "Ingresa la contraseña",
+      "login_titulo": "Admin-Panel-Zugriff",
+      "login_subtitulo": "Ingresa la contraseña para acceder",
+      "contraseña_incorrecta": "Contraseña incorrecta",
+      "acceder_panel": "Acceder al Panel",
+      "no_acceso": "¿No tienes acceso?",
+      "vuelve_inicio": "Vuelve al inicio",
+      "login_titulo": "Acceso al Panel de Administración",
+      "login_subtitulo": "Ingresa tu contraseña",
+      "contrasena": "Contraseña",
+      "btn_acceder": "Acceder"
+    },
+    "bd_translations": {
+      "experience_titles": {
+        "Cajero / Atención al Cliente": "Cashier / Customer Service",
+        "Operario Multifuncional": "Multifunctional Operator",
+        "Estudiante Técnico en Sistemas & Desarrollador": "Systems Technician Student & Developer"
+      },
+      "experience_companies": {
+        "ÉXITO (Los Almacenes)": "ÉXITO (The Stores)",
+        "Cine (Cinematografía)": "Cinema (Cinematography)",
+        "UTS + Proyectos Personales": "UTS + Personal Projects"
+      },
+      "experience_descriptions": {
+        "Atención profesional al cliente, gestión de caja, control de inventario y resolución de problemas. Experiencia que desarrolló mis habilidades de comunicación, paciencia y trabajo bajo presión.": "Professional customer service, cash management, inventory control and problem solving. Experience that developed my communication skills, patience and ability to work under pressure.",
+        "Servicio al cliente, operaciones de cine, mantenimiento de instalaciones y gestión de eventos. Experiencia en ambiente dinámico que fortaleció mi adaptabilidad y capacidad de aprendizaje rápido.": "Customer service, cinema operations, maintenance of facilities and event management. Experience in a dynamic environment that strengthened my adaptability and rapid learning ability.",
+        "Cursando Técnico en Sistemas en UTS mientras desarrollo proyectos personales en Python, Unity y desarrollo web. Integración de APIs de IA y participación activa en comunidades tecnológicas.": "Currently studying Systems Engineering at UTS while developing personal projects in Python, Unity and web development. Integration of AI APIs and active participation in tech communities."
+      },
+      "education_degrees": {
+        "Técnico en Sistemas": "Systems Technician"
+      },
+      "education_institutions": {
+        "UTS (Unidades Tecnológicas de Santander)": "UTS (Santander Technological Units)"
+      },
+      "education_fields": {
+        "Formación Técnica en Sistemas": "Technical Training in Systems"
+      },
+      "education_descriptions": {
+        "Formación técnica en desarrollo de sistemas, programación, redes y tecnologías de información. En curso desde enero 2026.": "Technical training in systems development, programming, networking and information technologies. Ongoing since January 2026."
+      },
+      "skill_categories": {
+        "Desarrollo Web": "Web Development",
+        "Herramientas": "Tools",
+        "IA & APIs": "AI & APIs",
+        "Lenguajes": "Languages",
+        "Videojuegos": "Game Development"
+      }
+    },
+    "footer": {
+      "derechos": "© 2024 Mi Portfolio. Todos los derechos reservados."
+    }
+  },
+  "en": {
+    "navbar": {
+      "inicio": "Home",
+      "proyectos": "Projects",
+      "sobre_mi": "About",
+      "blog": "Blog",
+      "contacto": "Contact"
+    },
+    "hero": {
+      "nombre": "Nicolas Andrey Norato Torres",
+      "titulo": "Software Engineer | Full Stack Developer | Indie Game Developer"
+    },
+    "index": {
+      "bienvenido": "Welcome to my Portfolio",
+      "descripcion": "I'm a software engineer passionate about creating innovative and scalable solutions",
+      "btn_proyectos": "View My Projects",
+      "btn_contacto": "Contact Me",
+      "proyectos_destacados": "Featured Projects",
+      "ver_mas_proyectos": "View all projects →",
+      "pregunta": "Do you have a project in mind?",
+      "disponible": "I'm available to collaborate on new projects and challenges.",
+      "btn_trabajar": "Let's get to work",
+      "github_link": "GitHub",
+      "live_link": "Live"
+    },
+    "sobre_mi": {
+      "titulo": "About Me",
+      "subtitulo": "Learn more about my experience and skills",
+      "intro": "Young technologist in training in Systems, with advanced knowledge in Python programming, video game development in Unity and integration of Artificial Intelligence APIs. Passionate about technology and innovation, with self-taught experience in personal software development projects and participation in technological events. I am characterized by my adaptability, autonomous learning capacity and innovative thinking to solve real-world problems. Although my initial professional experience comes from the service sector (retail and entertainment), I have compensated with dedication and constant learning in programming. I am looking for opportunities that allow me to continue growing professionally in the technological field and contribute innovative solutions.",
+      "soft_skills_title": "Soft Skills",
+      "teamwork": "Teamwork",
+      "teamwork_desc": "Effective collaboration and clear communication",
+      "adaptability": "Adaptability",
+      "adaptability_desc": "Autonomous learning and flexibility to changes",
+      "creativity": "Creativity",
+      "creativity_desc": "Innovative problem solving",
+      "languages_title": "Languages",
+      "spanish": "Spanish",
+      "english": "English",
+      "german": "German",
+      "native": "Native",
+      "intermediate": "Intermediate",
+      "basic": "Basic",
+      "main_technologies": "Main Technologies",
+      "habilidades": "Technical Skills",
+      "experiencia": "Professional Experience",
+      "educacion": "Education"
+    },
+    "proyectos": {
+      "titulo": "My Projects",
+      "subtitulo": "A selection of my most outstanding work",
+      "actualiza_github": "Projects are automatically updated from GitHub",
+      "search_placeholder": "🔍 Search by name or description...",
+      "filter_label": "Filter by technology:",
+      "filter_all": "All technologies",
+      "btn_clear_filters": "Clear filters",
+      "result_count": "projects",
+      "no_proyectos": "No projects yet",
+      "proyectos_agregados": "Projects will appear here once they are added.",
+      "badge_featured": "FEATURED",
+      "badge_github": "GitHub",
+      "no_description": "No description available"
+    },
+    "contacto": {
+      "titulo": "Contact",
+      "subtitulo": "Let's talk about your project?",
+      "form_titulo": "Send me a message",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "github": "GitHub",
+      "construccion": "Coming soon",
+      "nombre": "Name",
+      "nombre_placeholder": "Your full name",
+      "email_label": "Email",
+      "email_placeholder": "your.email@example.com",
+      "asunto": "Subject",
+      "asunto_placeholder": "What is your message about?",
+      "mensaje": "Message",
+      "mensaje_placeholder": "Write your message here...",
+      "btn_enviar": "Send Message",
+      "enviando": "Sending...",
+      "mensaje_exito": "Message sent successfully",
+      "mensaje_error": "Error sending message"
+    },
+    "blog": {
+      "titulo": "My Blog",
+      "subtitulo": "Thoughts, ideas and reflections on development and technology",
+      "leer_mas": "Read more →",
+      "no_posts": "No posts yet",
+      "proximamente": "Soon I'll be sharing my thoughts and reflections here.",
+      "volver": "← Back to blog"
+    },
+    "admin": {
+      "titulo": "Admin Panel",
+      "subtitulo": "Manage your blog posts",
+      "nuevo_post": "+ New Post",
+      "cerrar_sesion": "Sign Out",
+      "crear": "Create New Post",
+      "editar": "Edit Post",
+      "tus_posts": "Your Posts",
+      "ver": "View",
+      "eliminar": "Delete",
+      "caracteres": "characters",
+      "no_posts_admin": "No posts yet",
+      "crear_primer_post": "Create your first post to get started!",
+      "titulo_post": "Post Title",
+      "titulo_placeholder": "Ex: My experience with Flask",
+      "resumen": "Summary (optional)",
+      "resumen_placeholder": "A brief summary of your post...",
+      "contenido": "Post Content",
+      "contenido_placeholder": "Write the full content of your post here...",
+      "btn_publicar": "📝 Publish Post",
+      "btn_guardar": "✅ Save Changes",
+      "volver_panel": "← Back to Panel",
+      "saltos_linea": "💡 You can use line breaks to separate paragraphs",
+      "confirmacion_eliminar": "Are you sure you want to delete this post?",
+      "creado": "📅 Created:",
+      "actualizado": "✏️ Last edited:",
+      "contrasena_placeholder": "Enter the password",
+      "login_subtitulo": "Enter your password to access",
+      "contraseña_incorrecta": "Incorrect password",
+      "acceder_panel": "Access Panel",
+      "no_acceso": "Don't have access?",
+      "vuelve_inicio": "Back to home",
+      "login_titulo": "Admin Panel Access",
+      "login_subtitulo": "Enter your password",
+      "contrasena": "Password",
+      "btn_acceder": "Access"
+    },
+    "bd_translations": {
+      "experience_titles": {
+        "Cajero / Atención al Cliente": "Cashier / Customer Service",
+        "Operario Multifuncional": "Multifunctional Operator",
+        "Estudiante Técnico en Sistemas & Desarrollador": "Systems Technician Student & Developer"
+      },
+      "experience_companies": {
+        "ÉXITO (Los Almacenes)": "ÉXITO (The Stores)",
+        "Cine (Cinematografía)": "Cinema (Cinematography)",
+        "UTS + Proyectos Personales": "UTS + Personal Projects"
+      },
+      "experience_descriptions": {
+        "Atención profesional al cliente, gestión de caja, control de inventario y resolución de problemas. Experiencia que desarrolló mis habilidades de comunicación, paciencia y trabajo bajo presión.": "Professional customer service, cash management, inventory control and problem solving. Experience that developed my communication skills, patience and ability to work under pressure.",
+        "Servicio al cliente, operaciones de cine, mantenimiento de instalaciones y gestión de eventos. Experiencia en ambiente dinámico que fortaleció mi adaptabilidad y capacidad de aprendizaje rápido.": "Customer service, cinema operations, maintenance of facilities and event management. Experience in a dynamic environment that strengthened my adaptability and rapid learning ability.",
+        "Cursando Técnico en Sistemas en UTS mientras desarrollo proyectos personales en Python, Unity y desarrollo web. Integración de APIs de IA y participación activa en comunidades tecnológicas.": "Currently studying Systems Engineering at UTS while developing personal projects in Python, Unity and web development. Integration of AI APIs and active participation in tech communities."
+      },
+      "education_degrees": {
+        "Técnico en Sistemas": "Systems Technician"
+      },
+      "education_institutions": {
+        "UTS (Unidades Tecnológicas de Santander)": "UTS (Santander Technological Units)"
+      },
+      "education_fields": {
+        "Formación Técnica en Sistemas": "Technical Training in Systems"
+      },
+      "education_descriptions": {
+        "Formación técnica en desarrollo de sistemas, programación, redes y tecnologías de información. En curso desde enero 2026.": "Technical training in systems development, programming, networking and information technologies. Ongoing since January 2026."
+      },
+      "skill_categories": {
+        "Desarrollo Web": "Web Development",
+        "Herramientas": "Tools",
+        "IA & APIs": "AI & APIs",
+        "Lenguajes": "Languages",
+        "Videojuegos": "Game Development"
+      }
+    },
+    "footer": {
+      "derechos": "© 2024 My Portfolio. All rights reserved."
+    }
+  },
+  "de": {
+    "navbar": {
+      "inicio": "Startseite",
+      "proyectos": "Projekte",
+      "sobre_mi": "Über",
+      "blog": "Blog",
+      "contacto": "Kontakt"
+    },
+    "hero": {
+      "nombre": "Nicolas Andrey Norato Torres",
+      "titulo": "Softwareentwickler | Full-Stack-Entwickler | Indie-Spieleentwickler"
+    },
+    "index": {
+      "bienvenido": "Willkommen in meinem Portfolio",
+      "descripcion": "Ich bin ein Softwareentwickler, der leidenschaftlich an innovativen und skalierbaren Lösungen arbeitet",
+      "btn_proyectos": "Meine Projekte anzeigen",
+      "btn_contacto": "Kontaktiere mich",
+      "proyectos_destacados": "Ausgewählte Projekte",
+      "ver_mas_proyectos": "Alle Projekte anzeigen →",
+      "pregunta": "Hast du ein Projekt im Sinn?",
+      "disponible": "Ich bin verfügbar, um an neuen Projekten und Herausforderungen zusammenzuarbeiten.",
+      "btn_trabajar": "Lassen Sie uns anfangen",
+      "github_link": "GitHub",
+      "live_link": "Live-Ansicht"
+    },
+    "sobre_mi": {
+      "titulo": "Über mich",
+      "subtitulo": "Erfahren Sie mehr über meine Erfahrungen und Fähigkeiten",
+      "intro": "Junger Technologe in Ausbildung im Bereich Systeme mit fortgeschrittenen Kenntnissen in Python-Programmierung, Videospielentwicklung in Unity und Integration von Artificial-Intelligence-APIs. Leidenschaftlich für Technologie und Innovation, mit autodidaktischer Erfahrung in persönlichen Softwareentwicklungsprojekten und Teilnahme an technologischen Veranstaltungen. Ich zeichne mich durch meine Anpassungsfähigkeit, autonome Lernfähigkeit und innovatives Denken zur Lösung von Problemen in der realen Welt aus. Obwohl meine anfängliche berufliche Erfahrung aus dem Dienstleistungssektor (Einzelhandel und Unterhaltung) stammt, habe ich mit Hingabe und kontinuierlichem Lernen in der Programmierung kompensiert. Ich suche nach Chancen, die mir ermöglichen, mich weiterhin beruflich im technologischen Bereich zu entwickeln und innovative Lösungen beizutragen.",
+      "soft_skills_title": "Soft Skills",
+      "teamwork": "Teamfähigkeit",
+      "teamwork_desc": "Effektive Zusammenarbeit und klare Kommunikation",
+      "adaptability": "Anpassungsfähigkeit",
+      "adaptability_desc": "Autonomes Lernen und Flexibilität bei Veränderungen",
+      "creativity": "Kreativität",
+      "creativity_desc": "Innovative Problemlösung",
+      "languages_title": "Sprachen",
+      "spanish": "Spanisch",
+      "english": "Englisch",
+      "german": "Deutsch",
+      "native": "Muttersprache",
+      "intermediate": "Mittelstufe",
+      "basic": "Grundstufe",
+      "main_technologies": "Haupttechnologien",
+      "habilidades": "Technische Fähigkeiten",
+      "experiencia": "Berufserfahrung",
+      "educacion": "Bildung"
+    },
+    "proyectos": {
+      "titulo": "Meine Projekte",
+      "subtitulo": "Eine Auswahl meiner herausragendsten Arbeiten",
+      "actualiza_github": "Projekte werden automatisch von GitHub aktualisiert",
+      "search_placeholder": "🔍 Nach Name oder Beschreibung suchen...",
+      "filter_label": "Nach Technologie filtern:",
+      "filter_all": "Alle Technologien",
+      "btn_clear_filters": "Filter löschen",
+      "result_count": "Projekte",
+      "no_proyectos": "Noch keine Projekte",
+      "proyectos_agregados": "Projekte werden hier angezeigt, sobald sie hinzugefügt werden.",
+      "badge_featured": "AUSGEWÄHLT",
+      "badge_github": "GitHub",
+      "no_description": "Keine Beschreibung verfügbar"
+    },
+    "contacto": {
+      "titulo": "Kontakt",
+      "subtitulo": "Lassen Sie uns über Ihr Projekt sprechen?",
+      "form_titulo": "Senden Sie mir eine Nachricht",
+      "email": "E-Mail",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "github": "GitHub",
+      "construccion": "In Kürze",
+      "nombre": "Name",
+      "nombre_placeholder": "Ihr vollständiger Name",
+      "email_label": "E-Mail",
+      "email_placeholder": "ihre.email@beispiel.de",
+      "asunto": "Betreff",
+      "asunto_placeholder": "Worum geht es in Ihrer Nachricht?",
+      "mensaje": "Nachricht",
+      "mensaje_placeholder": "Schreiben Sie Ihre Nachricht hier...",
+      "btn_enviar": "Nachricht senden",
+      "enviando": "Wird gesendet...",
+      "mensaje_exito": "Nachricht erfolgreich gesendet",
+      "mensaje_error": "Fehler beim Senden der Nachricht"
+    },
+    "blog": {
+      "titulo": "Mein Blog",
+      "subtitulo": "Gedanken, Ideen und Überlegungen zur Entwicklung und Technologie",
+      "leer_mas": "Mehr lesen →",
+      "no_posts": "Noch keine Beiträge",
+      "proximamente": "Bald werde ich meine Gedanken und Überlegungen hier teilen.",
+      "volver": "← Zurück zum Blog"
+    },
+    "admin": {
+      "titulo": "Admin-Panel",
+      "subtitulo": "Verwalten Sie Ihre Blog-Beiträge",
+      "nuevo_post": "+ Neuer Beitrag",
+      "cerrar_sesion": "Abmelden",
+      "crear": "Neuen Beitrag erstellen",
+      "editar": "Beitrag bearbeiten",
+      "tus_posts": "Ihre Beiträge",
+      "ver": "Anzeigen",
+      "eliminar": "Löschen",
+      "caracteres": "Zeichen",
+      "no_posts_admin": "Noch keine Beiträge",
+      "crear_primer_post": "Erstellen Sie Ihren ersten Beitrag!",
+      "titulo_post": "Beitragstitel",
+      "titulo_placeholder": "Beispiel: Meine Erfahrung mit Flask",
+      "resumen": "Zusammenfassung (optional)",
+      "resumen_placeholder": "Eine kurze Zusammenfassung Ihres Beitrags...",
+      "contenido": "Beitragsinhalt",
+      "contenido_placeholder": "Schreiben Sie hier den vollständigen Inhalt Ihres Beitrags...",
+      "btn_publicar": "📝 Beitrag veröffentlichen",
+      "btn_guardar": "✅ Änderungen speichern",
+      "volver_panel": "← Zurück zum Panel",
+      "saltos_linea": "💡 Sie können Zeilenumbrüche verwenden, um Absätze zu trennen",
+      "confirmacion_eliminar": "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?",
+      "creado": "📅 Erstellt:",
+      "actualizado": "✏️ Zuletzt bearbeitet:",
+      "contrasena_placeholder": "Geben Sie das Passwort ein",
+      "login_subtitulo": "Geben Sie Ihr Passwort ein, um Zugriff zu erhalten",
+      "contenido": "Beitragsinhalt",
+      "contenido_placeholder": "Schreiben Sie hier den vollständigen Inhalt Ihres Beitrags...",
+      "publicar": "📝 Beitrag veröffentlichen",
+      "guardar_cambios": "✅ Änderungen speichern",
+      "volver_panel": "← Zurück zum Panel",
+      "saltos_linea": "💡 Sie können Zeilenumbrüche verwenden, um Absätze zu trennen",
+      "confirmacion_eliminar": "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?",
+      "creado": "📅 Erstellt:",
+      "actualizado": "✏️ Zuletzt bearbeitet:",
+      "contraseña_incorrecta": "Falsches Passwort",
+      "acceder_panel": "Auf Panel zugreifen",
+      "no_acceso": "Haben Sie keinen Zugriff?",
+      "vuelve_inicio": "Zurück zur Startseite",
+      "login_titulo": "Admin-Panel-Zugriff",
+      "login_subtitulo": "Geben Sie Ihr Passwort ein",
+      "contrasena": "Passwort",
+      "btn_acceder": "Zugriff"
+    },
+    "bd_translations": {
+      "experience_titles": {
+        "Cajero / Atención al Cliente": "Kassierer / Kundenservice",
+        "Operario Multifuncional": "Multifunktionaler Bediener",
+        "Estudiante Técnico en Sistemas & Desarrollador": "Systemtechniker-Student & Entwickler"
+      },
+      "experience_companies": {
+        "ÉXITO (Los Almacenes)": "ÉXITO (Die Läden)",
+        "Cine (Cinematografía)": "Kino (Kinematographie)",
+        "UTS + Proyectos Personales": "UTS + Persönliche Projekte"
+      },
+      "experience_descriptions": {
+        "Atención profesional al cliente, gestión de caja, control de inventario y resolución de problemas. Experiencia que desarrolló mis habilidades de comunicación, paciencia y trabajo bajo presión.": "Professioneller Kundenservice, Kassenverwaltung, Bestandskontrolle und Problemlösung. Erfahrung, die meine Kommunikationsfähigkeiten, Geduld und Fähigkeit zu arbeiten unter Druck entwickelt hat.",
+        "Servicio al cliente, operaciones de cine, mantenimiento de instalaciones y gestión de eventos. Experiencia en ambiente dinámico que fortaleció mi adaptabilidad y capacidad de aprendizaje rápido.": "Kundenservice: Kinobetrieb, Instandhaltung von Anlagen und Veranstaltungsmanagement. Erfahrung in dynamischer Umgebung, die meine Anpassungsfähigkeit und schnelle Lernfähigkeit gestärkt hat.",
+        "Cursando Técnico en Sistemas en UTS mientras desarrollo proyectos personales en Python, Unity y desarrollo web. Integración de APIs de IA y participación activa en comunidades tecnológicas.": "Studieren von Systemtechnik an der UTS bei der Entwicklung persönlicher Projekte in Python, Unity und Webentwicklung. Integration von KI-APIs und aktive Teilnahme an Tech-Gemeinschaften."
+      },
+      "education_degrees": {
+        "Técnico en Sistemas": "Systemtechniker"
+      },
+      "education_institutions": {
+        "UTS (Unidades Tecnológicas de Santander)": "UTS (Technologische Einheiten Santander)"
+      },
+      "education_fields": {
+        "Formación Técnica en Sistemas": "Technische Ausbildung in Systemen"
+      },
+      "education_descriptions": {
+        "Formación técnica en desarrollo de sistemas, programación, redes y tecnologías de información. En curso desde enero 2026.": "Technische Ausbildung in Systementwicklung, Programmierung, Netzwerk und Informationstechnologien. Läuft seit Januar 2026."
+      },
+      "skill_categories": {
+        "Desarrollo Web": "Webentwicklung",
+        "Herramientas": "Werkzeuge",
+        "IA & APIs": "KI & APIs",
+        "Lenguajes": "Sprachen",
+        "Videojuegos": "Spieleentwicklung"
+      }
+    },
+    "footer": {
+      "derechos": "© 2024 Mein Portfolio. Alle Rechte vorbehalten."
+    }
+  },
+  "pt": {
+    "navbar": {
+      "inicio": "Início",
+      "proyectos": "Projetos",
+      "sobre_mi": "Sobre",
+      "blog": "Blog",
+      "contacto": "Contato"
+    },
+    "hero": {
+      "nombre": "Nicolas Andrey Norato Torres",
+      "titulo": "Engenheiro de Software | Desenvolvedor Full Stack | Desenvolvedor de Jogos Indie"
+    },
+    "index": {
+      "bienvenido": "Bem-vindo ao meu Portfólio",
+      "descripcion": "Sou um engenheiro de software apaixonado por criar soluções inovadoras e escaláveis",
+      "btn_proyectos": "Ver Meus Projetos",
+      "btn_contacto": "Entre em Contato",
+      "proyectos_destacados": "Projetos em Destaque",
+      "ver_mas_proyectos": "Ver todos os projetos →",
+      "pregunta": "Você tem um projeto em mente?",
+      "disponible": "Estou disponível para colaborar em novos projetos e desafios.",
+      "btn_trabajar": "Vamos começar",
+      "github_link": "GitHub",
+      "live_link": "Ver ao vivo"
+    },
+    "sobre_mi": {
+      "titulo": "Sobre mim",
+      "subtitulo": "Saiba mais sobre minha experiência e habilidades",
+      "intro": "Jovem tecnólogo em formação em Sistemas, com conhecimentos avançados em programação Python, desenvolvimento de videojogos em Unity e integração de APIs de Inteligência Artificial. Apaixonado por tecnologia e inovação, com experiência autodidata em projetos pessoais de desenvolvimento de software e participação em eventos tecnológicos. Sou caracterizado por minha adaptabilidade, capacidade de aprendizado autônomo e pensamento inovador para resolver problemas do mundo real. Embora minha experiência profissional inicial provenha do setor de serviços (varejo e entretenimento), compensei com dedicação e aprendizado constante em programação. Busco oportunidades que me permitam continuar crescendo profissionalmente na área tecnológica e contribuir com soluções inovadoras.",
+      "soft_skills_title": "Competências Pessoais",
+      "teamwork": "Trabalho em Equipe",
+      "teamwork_desc": "Colaboração efetiva e comunicação clara",
+      "adaptability": "Adaptabilidade",
+      "adaptability_desc": "Aprendizado autônomo e flexibilidade ante mudanças",
+      "creativity": "Criatividade",
+      "creativity_desc": "Resolução inovadora de problemas",
+      "languages_title": "Idiomas",
+      "spanish": "Espanhol",
+      "english": "Inglês",
+      "german": "Alemão",
+      "native": "Nativo",
+      "intermediate": "Intermediário",
+      "basic": "Básico",
+      "main_technologies": "Principais Tecnologias",
+      "habilidades": "Habilidades Técnicas",
+      "experiencia": "Experiência Profissional",
+      "educacion": "Educação"
+    },
+    "proyectos": {
+      "titulo": "Meus Projetos",
+      "subtitulo": "Uma seleção de meus trabalhos mais destacados",
+      "actualiza_github": "Os projetos são atualizados automaticamente do GitHub",
+      "search_placeholder": "🔍 Procurar por nome ou descrição...",
+      "filter_label": "Filtrar por tecnologia:",
+      "filter_all": "Todas as tecnologias",
+      "btn_clear_filters": "Limpar filtros",
+      "result_count": "projetos",
+      "no_proyectos": "Nenhum projeto ainda",
+      "proyectos_agregados": "Os projetos aparecerão aqui assim que forem adicionados.",
+      "badge_featured": "DESTACADO",
+      "badge_github": "GitHub",
+      "no_description": "Nenhuma descrição disponível"
+    },
+    "contacto": {
+      "titulo": "Contato",
+      "subtitulo": "Vamos falar sobre seu projeto?",
+      "form_titulo": "Envie-me uma mensagem",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "github": "GitHub",
+      "construccion": "Em breve",
+      "nombre": "Nome",
+      "nombre_placeholder": "Seu nome completo",
+      "email_label": "Email",
+      "email_placeholder": "seu.email@exemplo.com.br",
+      "asunto": "Assunto",
+      "asunto_placeholder": "Do que se trata sua mensagem?",
+      "mensaje": "Mensagem",
+      "mensaje_placeholder": "Escreva sua mensagem aqui...",
+      "btn_enviar": "Enviar Mensagem",
+      "enviando": "Enviando...",
+      "mensaje_exito": "Mensagem enviada com sucesso",
+      "mensaje_error": "Erro ao enviar a mensagem"
+    },
+    "blog": {
+      "titulo": "Meu Blog",
+      "subtitulo": "Pensamentos, ideias e reflexões sobre desenvolvimento e tecnologia",
+      "leer_mas": "Ler mais →",
+      "no_posts": "Nenhum post ainda",
+      "proximamente": "Em breve estarei compartilhando meus pensamentos e reflexões aqui.",
+      "volver": "← Voltar ao blog"
+    },
+    "admin": {
+      "titulo": "Painel de Administração",
+      "subtitulo": "Gerencie seus posts do blog",
+      "nuevo_post": "+ Novo Post",
+      "cerrar_sesion": "Sair",
+      "crear": "Criar Novo Post",
+      "editar": "Editar Post",
+      "tus_posts": "Seus Posts",
+      "ver": "Ver",
+      "eliminar": "Deletar",
+      "caracteres": "caracteres",
+      "no_posts_admin": "Nenhum post ainda",
+      "crear_primer_post": "Crie seu primeiro post para começar!",
+      "titulo_post": "Título do Post",
+      "titulo_placeholder": "Ex: Minha experiência com Flask",
+      "resumen": "Resumo (opcional)",
+      "resumen_placeholder": "Um breve resumo do seu post...",
+      "contenido": "Conteúdo do Post",
+      "contenido_placeholder": "Escreva o conteúdo completo do seu post aqui...",
+      "btn_publicar": "📝 Publicar Post",
+      "btn_guardar": "✅ Salvar Alterações",
+      "volver_panel": "← Voltar ao Painel",
+      "saltos_linea": "💡 Você pode usar quebras de linha para separar parágrafos",
+      "confirmacion_eliminar": "Tem certeza de que deseja deletar este post?",
+      "creado": "📅 Criado:",
+      "actualizado": "✏️ Última edição:",
+      "contrasena_placeholder": "Digite sua senha",
+      "login_subtitulo": "Digite sua senha para acessar",
+      "contraseña_incorrecta": "Senha incorreta",
+      "acceder_panel": "Acessar Painel",
+      "no_acceso": "Não tem acesso?",
+      "vuelve_inicio": "Voltar ao início",
+      "login_titulo": "Acesso ao Painel Admin",
+      "login_subtitulo": "Digite sua senha",
+      "contrasena": "Senha",
+      "btn_acceder": "Acessar"
+    },
+    "bd_translations": {
+      "experience_titles": {
+        "Cajero / Atención al Cliente": "Caixa / Atendimento ao Cliente",
+        "Multifuncional Operator": "Operador Multifuncional"
+      },
+      "experience_companies": {
+        "ÉXITO (Los Almacenes)": "ÉXITO (As Lojas)",
+        "Kino (Kinematografía)": "Kino (Cinematografia)"
+      },
+      "experience_descriptions": {
+        "Atención profesional al cliente, gestión de caja, control de inventario y resolución de problemas. Experiencia que desarrolló mis habilidades de comunicación, paciencia y trabajo bajo presión.": "Atendimento profissional ao cliente, gestão de caixa, controle de estoque e resolução de problemas. Experiência que desenvolveu minhas habilidades de comunicação, paciência e capacidade de trabalhar sob pressão.",
+        "Servicio al cliente: operaciones de cine, mantenimiento de instalaciones y gestión de eventos. Experiencia en ambiente dinámico que fortaleció mi adaptabilidad y capacidad de aprendizaje rápido.": "Atendimento ao cliente: operações de cinema, manutenção de instalações e gestão de eventos. Experiência em ambiente dinâmico que fortaleceu minha adaptabilidade e capacidade de aprendizagem rápida.",
+        "Cursando Técnico en Sistemas an UTS mientras desarrollo proyectos personales en Python, Unity y desarrollo web. Integración de APIs de IA y participación activa en comunidades tecnológicas.": "Cursando Técnico em Sistemas na UTS enquanto desenvolvo projetos pessoais em Python, Unity e desenvolvimento web. Integração de APIs de IA e participação ativa em comunidades de tecnologia."
+      },
+      "education_degrees": {
+        "Técniker in Systemen & Entwickler in Ausbildung": "Técnico em Sistemas & Desenvolvedor em Treinamento"
+      },
+      "education_institutions": {
+        "UTS (Unidades Tecnológicas de Santander)": "UTS (Unidades Tecnológicas de Santander)"
+      },
+      "education_fields": {
+        "Técnische Ausbildung in Systemen": "Treinamento Técnico em Sistemas"
+      },
+      "education_descriptions": {
+        "Formación técnica en desarrollo de sistemas, programación, redes y tecnologías de información. En curso desde enero 2026.": "Formação técnica em desenvolvimento de sistemas, programação, redes e tecnologias de informação. Em andamento desde janeiro de 2026."
+      },
+      "skill_categories": {
+        "Desarrollo Web": "Desenvolvimento Web",
+        "Herramientas": "Ferramentas",
+        "IA & APIs": "IA & APIs",
+        "Lenguajes": "Linguagens",
+        "Videojuegos": "Desenvolvimento de Jogos"
+      }
+    },
+    "footer": {
+      "derechos": "© 2024 Meu Portfólio. Todos os direitos reservados."
+    }
+  }
+}

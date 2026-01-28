@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Blog{% endblock %}
+
+{% block content %}
+<!-- NAVEGACIÓN -->
+<section style="padding: 2rem; background: rgba(30, 41, 59, 0.5);">
+    <div class="container">
+        <a href="{{ url_for('main.blog') }}" style="color: var(--accent-light); display: inline-flex; align-items: center; gap: 0.5rem;">
+            ← Volver al blog
+        </a>
+    </div>
+</section>
+
+<!-- POST -->
+<section class="container" style="padding: 4rem 2rem;">
+    <article style="max-width: 900px; margin: 0 auto; background: rgba(15, 23, 42, 0.8); padding: 3rem; border-radius: 15px; border: 1px solid var(--border-color);">
+        <h1 style="color: var(--accent-light); margin-bottom: 1rem;">{{ post.title }}</h1>
+        
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2rem;">
+            <span>📅 {{ post.created_at.strftime('%d de %B de %Y') }}</span>
+            {% if post.created_at != post.updated_at %}
+            <span style="margin-left: 1rem;">✏️ Actualizado: {{ post.updated_at.strftime('%d de %B de %Y') }}</span>
+            {% endif %}
+        </div>
+        
+        <div style="color: var(--text-light); line-height: 1.8; font-size: 1.05rem;">
+            {{ post.content | replace('\n', '<br>') | safe }}
+        </div>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <a href="{{ url_for('main.blog') }}" class="btn btn-secondary">← Volver a posts</a>
+        </div>
+    </article>
+</section>
+{% endblock %}

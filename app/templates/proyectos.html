@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+
+{% block title %}Mis Proyectos{% endblock %}
+
+{% block content %}
+<!-- HEADER -->
+<section style="padding: 4rem 2rem; background: rgba(30, 41, 59, 0.5); text-align: center;">
+    <div class="container">
+        <h1 data-i18n="proyectos.titulo">Mis Proyectos</h1>
+        <p style="font-size: 1.1rem; color: var(--text-muted);" data-i18n="proyectos.subtitulo">Una selección de mis trabajos más destacados</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;" data-i18n="proyectos.actualiza_github">
+            <span style="color: #3b82f6;">⚡</span> Los proyectos se actualizan automáticamente desde GitHub
+        </p>
+    </div>
+</section>
+
+<!-- FILTROS Y BÚSQUEDA -->
+<section class="container" style="padding: 2rem;">
+    <div class="filters-container">
+        <!-- BARRA DE BÚSQUEDA -->
+        <div class="search-bar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="🔍 Busca por nombre o descripción..." 
+                class="search-input"
+                onkeyup="filterProjects()"
+                data-i18n-placeholder="proyectos.search_placeholder"
+            >
+        </div>
+
+        <!-- FILTRO POR TECNOLOGÍA -->
+        <div class="filter-tech">
+            <label for="techFilter" data-i18n="proyectos.filter_label">Filtrar por tecnología:</label>
+            <select id="techFilter" class="tech-select" onchange="filterProjects()">
+                <option value="" data-i18n="proyectos.filter_all">Todas las tecnologías</option>
+                {% for tech in technologies %}
+                <option value="{{ tech }}">{{ tech }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- BOTÓN PARA LIMPIAR FILTROS -->
+        <button class="btn-clear-filters" onclick="clearFilters()" data-i18n="proyectos.btn_clear_filters">Limpiar filtros</button>
+    </div>
+
+    <!-- CONTADOR DE RESULTADOS -->
+    <div style="text-align: center; margin-top: 1rem; color: var(--text-muted);">
+        <span id="resultCount">{{ projects|length }} <span data-i18n="proyectos.result_count">proyectos</span></span>
+    </div>
+</section>
+
+<!-- PROYECTOS GRID -->
+<section class="container" style="padding: 2rem;">
+    {% if projects %}
+    <div class="projects-grid" id="projectsGrid">
+        {% for project in projects %}
+        <div class="project-card" 
+             data-title="{{ project.title|lower }}" 
+             data-description="{{ project.description|lower }}" 
+             data-tech="{{ project.technologies|lower }}">
+            {% if project.image_url %}
+            <img src="{{ project.image_url }}" alt="{{ project.title }}" class="project-image">
+            {% else %}
+            <div class="project-image" style="background: linear-gradient(135deg, #3b82f6, #60a5fa); display: flex; align-items: center; justify-content: center; position: relative;">
+                <span style="font-size: 3rem; opacity: 0.5;">
+                    {% if project.is_github %}
+                    🐙
+                    {% else %}
+                    💻
+                    {% endif %}
+                </span>
+                {% if project.is_github and project.stars > 0 %}
+                <span style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.6); color: #fbbf24; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">
+                    ⭐ {{ project.stars }}
+                </span>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <div class="project-content">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <h3 class="project-title" style="margin: 0;">{{ project.title }}</h3>
+                    {% if project.is_github %}
+                    <span style="background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">GitHub</span>
+                    {% endif %}
+                </div>
+                
+                <p class="project-description">{{ project.description }}</p>
+                
+                <div class="tech-tags">
+                    {% if project.is_github %}
+                    <span class="tech-tag" style="background: #3b82f6;">{{ project.technologies }}</span>
+                    {% else %}
+                    {% for tech in project.technologies.split(',') %}
+                    <span class="tech-tag">{{ tech.strip() }}</span>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="project-links">
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" target="_blank">{% if project.is_github %}Ver en GitHub{% else %}GitHub{% endif %}</a>
+                    {% endif %}
+                    {% if project.live_url %}
+                    <a href="{{ project.live_url }}" target="_blank">Ver en vivo</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- MENSAJE SIN RESULTADOS -->
+    <div id="noResults" style="display: none; text-align: center; padding: 4rem 2rem;">
+        <h3>No se encontraron proyectos</h3>
+        <p style="color: var(--text-muted);">Intenta con otros términos de búsqueda o filtros</p>
+    </div>
+    
+    {% else %}
+    <div style="text-align: center; padding: 4rem 2rem;">
+        <h3 data-i18n="proyectos.no_proyectos">No hay proyectos aún</h3>
+        <p style="color: var(--text-muted);" data-i18n="proyectos.proyectos_agregados">Los proyectos aparecerán aquí una vez que se agreguen.</p>
+    </div>
+    {% endif %}
+</section>
+
+<style>
+.filters-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 2rem;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.search-bar {
+    flex: 1;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.filter-tech label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.tech-select {
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 180px;
+}
+
+.tech-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.tech-select option {
+    background: #1e293b;
+    color: #f1f5f9;
+}
+
+.btn-clear-filters {
+    padding: 0.75rem 1.5rem;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-clear-filters:hover {
+    background: rgba(239, 68, 68, 0.25);
+}
+
+@media (max-width: 1024px) {
+    .filters-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .filters-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .filter-tech {
+        width: 100%;
+    }
+    
+    .tech-select {
+        width: 100%;
+        min-width: auto;
+    }
+}
+</style>
+
+<script>
+function filterProjects() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const techFilter = document.getElementById('techFilter').value.toLowerCase();
+    const projectCards = document.querySelectorAll('.project-card');
+    let visibleCount = 0;
+
+    projectCards.forEach(card => {
+        const title = card.dataset.title;
+        const description = card.dataset.description;
+        const tech = card.dataset.tech;
+
+        const matchesSearch = !searchInput || title.includes(searchInput) || description.includes(searchInput);
+        const matchesTech = !techFilter || tech.includes(techFilter);
+
+        if (matchesSearch && matchesTech) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // Mostrar/ocultar mensaje de no resultados
+    const noResults = document.getElementById('noResults');
+    const projectsGrid = document.getElementById('projectsGrid');
+    
+    if (visibleCount === 0 && projectCards.length > 0) {
+        noResults.style.display = 'block';
+        projectsGrid.style.display = 'none';
+    } else {
+        noResults.style.display = 'none';
+        projectsGrid.style.display = 'grid';
+    }
+
+    // Actualizar contador
+    document.getElementById('resultCount').textContent = `${visibleCount} proyecto${visibleCount !== 1 ? 's' : ''}`;
+}
+
+function clearFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('techFilter').value = '';
+    filterProjects();
+}
+</script>
+{% endblock %}

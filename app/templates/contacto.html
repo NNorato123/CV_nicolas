@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<!-- HEADER -->
+<section style="padding: 4rem 2rem; background: rgba(30, 41, 59, 0.5); text-align: center;">
+    <div class="container">
+        <h1 data-i18n="contacto.titulo">Contacto</h1>
+        <p style="font-size: 1.1rem; color: var(--text-muted);" data-i18n="contacto.subtitulo">¿Hablamos sobre tu proyecto?</p>
+    </div>
+</section>
+
+<!-- CONTENIDO PRINCIPAL -->
+<section class="contact-section">
+    <div class="contact-container">
+        <!-- INFORMACIÓN DE CONTACTO -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="contacto.email">Email</h3>
+                <p style="color: var(--text-muted);">
+                    <a href="mailto:nnicolasnorato@gmail.com" style="color: var(--accent-light);">nnicolasnorato@gmail.com</a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">💬</div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="contacto.whatsapp">WhatsApp</h3>
+                <p style="color: var(--text-muted);">
+                    <a href="https://wa.me/573113454624" target="_blank" style="color: var(--accent-light);">+57 311 3454624</a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">🐙</div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="contacto.github">GitHub</h3>
+                <p style="color: var(--text-muted);">
+                    <a href="https://github.com/NNorato123" target="_blank" style="color: var(--accent-light);">github.com/NNorato123</a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="contacto.linkedin">LinkedIn</h3>
+                <p style="color: var(--text-muted);">
+                    <a href="https://www.linkedin.com/in/nicolas-norato-64758b214/" target="_blank" style="color: var(--accent-light);">linkedin.com/in/nicolas-norato</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-section {
+    padding: 4rem 2rem;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.contact-item {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contact-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-icon {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

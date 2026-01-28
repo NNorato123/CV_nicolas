@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Nuevo Post{% endblock %}
+
+{% block content %}
+<!-- HEADER -->
+<section style="padding: 3rem 2rem; background: rgba(30, 41, 59, 0.5); border-bottom: 2px solid var(--accent-color);">
+    <div class="container">
+        <h1 style="color: var(--accent-light);" data-i18n="admin.crear">Crear Nuevo Post</h1>
+    </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="container" style="padding: 4rem 2rem;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        
+        {% if error %}
+        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgb(239, 68, 68); border-radius: 10px; padding: 1rem; margin-bottom: 2rem; color: rgb(248, 113, 113);">
+            ⚠️ {{ error }}
+        </div>
+        {% endif %}
+        
+        <form method="POST" style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); border-radius: 15px; padding: 3rem; display: flex; flex-direction: column; gap: 2rem;">
+            
+            <!-- TÍTULO -->
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="title" style="color: var(--text-light); font-weight: 600; font-size: 1rem;" data-i18n="admin.titulo_post">
+                    Título del Post *
+                </label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    placeholder="Ej: Mi experiencia con Flask" 
+                    data-i18n-placeholder="admin.titulo_placeholder" 
+                    required
+                    maxlength="200"
+                    style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; color: var(--text-light); font-size: 1rem; transition: var(--transition);"
+                    onfocus="this.style.borderColor='var(--accent-color)'"
+                    onblur="this.style.borderColor='var(--border-color)'"
+                >
+            </div>
+            
+            <!-- RESUMEN -->
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="summary" style="color: var(--text-light); font-weight: 600; font-size: 1rem;" data-i18n="admin.resumen">
+                    Resumen (opcional)
+                </label>
+                <textarea 
+                    id="summary" 
+                    name="summary" 
+                    placeholder="Un breve resumen de tu post..." 
+                    data-i18n-placeholder="admin.resumen_placeholder" 
+                    rows="3"
+                    maxlength="300"
+                    style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; color: var(--text-light); font-size: 1rem; transition: var(--transition); resize: vertical;"
+                    onfocus="this.style.borderColor='var(--accent-color)'"
+                    onblur="this.style.borderColor='var(--border-color)'"
+                ></textarea>
+                <small style="color: var(--text-muted); font-size: 0.85rem;">Máximo 300 caracteres</small>
+            </div>
+            
+            <!-- CONTENIDO -->
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="content" style="color: var(--text-light); font-weight: 600; font-size: 1rem;" data-i18n="admin.contenido">
+                    Contenido del Post *
+                </label>
+                <textarea 
+                    id="content" 
+                    name="content" 
+                    placeholder="Escribe el contenido completo de tu post aquí..." 
+                    data-i18n-placeholder="admin.contenido_placeholder" 
+                    rows="12"
+                    required
+                    style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; color: var(--text-light); font-size: 1rem; transition: var(--transition); resize: vertical; font-family: inherit;"
+                    onfocus="this.style.borderColor='var(--accent-color)'"
+                    onblur="this.style.borderColor='var(--border-color)'"
+                ></textarea>
+                <small style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="admin.saltos_linea">
+                    💡 Puedes usar saltos de línea para separar párrafos
+                </small>
+            </div>
+            
+            <!-- BOTONES -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button type="submit" class="btn btn-primary" data-i18n="admin.btn_publicar">
+                    📝 Publicar Post
+                </button>
+                <a href="{{ url_for('main.admin_panel') }}" class="btn btn-secondary" data-i18n="admin.volver_panel">
+                    ← Volver al Panel
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Panel de Administración{% endblock %}
+
+{% block content %}
+<!-- LOGIN SECTION -->
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);">
+    <div style="width: 100%; max-width: 400px;">
+        <!-- CARD -->
+        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-color); border-radius: 15px; padding: 3rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+            <h1 style="color: var(--accent-light); text-align: center; margin-bottom: 0.5rem; font-size: 1.8rem;" data-i18n="admin.titulo">Panel Admin</h1>
+            <p style="color: var(--text-muted); text-align: center; margin-bottom: 2rem; font-size: 0.95rem;" data-i18n="admin.login_subtitulo">Ingresa la contraseña para acceder</p>
+            
+            {% if error %}
+            <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgb(239, 68, 68); border-radius: 10px; padding: 1rem; margin-bottom: 2rem; color: rgb(248, 113, 113);">
+                ⚠️ {{ error }}
+            </div>
+            {% endif %}
+            
+            <!-- FORM -->
+            <form method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label for="password" style="color: var(--text-light); font-weight: 500;" data-i18n="admin.contrasena">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Ingresa la contraseña"
+                        data-i18n-placeholder="admin.contrasena_placeholder" 
+                        required
+                        autofocus
+                        style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; color: var(--text-light); font-size: 1rem; transition: var(--transition); width: 100%; box-sizing: border-box;"
+                        onmouseover="this.style.borderColor='var(--accent-color)'"
+                        onmouseout="this.style.borderColor='var(--border-color)'"
+                        onfocus="this.style.borderColor='var(--accent-color)'"
+                        onblur="this.style.borderColor='var(--border-color)'"
+                    >
+                </div>
+                
+                <button 
+                    type="submit" 
+                    class="btn btn-primary"
+                    style="width: 100%; padding: 0.75rem; font-size: 1rem; font-weight: 600;"
+                    data-i18n="admin.btn_acceder"
+                >
+                    Acceder al Panel
+                </button>
+            </form>
+            
+            <!-- INFO -->
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    ¿No tienes acceso? <a href="{{ url_for('main.index') }}" style="color: var(--accent-light); text-decoration: none; hover:text-decoration: underline;">Vuelve al inicio</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
