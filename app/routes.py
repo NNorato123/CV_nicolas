@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request, jsonify, redirect, url_fo
 from app.models import Project, Skill, Experience, Education, BlogPost, ContactMessage
 from app import db, mail
 from app.github_service import GitHubService
-from app.language_colors import get_language_color
 from flask_mail import Message
 import os
 from functools import wraps
@@ -43,27 +42,20 @@ def proyectos():
     
     # Convertir repos de GitHub a formato compatible con template
     projects = []
+    all_languages = set()  # Para recolectar todos los lenguajes
     
     # Agregar repos de GitHub
     for repo in github_repos:
-        # Procesar lenguajes del repositorio
-        languages_data = repo.get('languages', {})
-        languages_list = []
-        if languages_data:
-            # Ordenar lenguajes por cantidad de bytes (mayor a menor)
-            sorted_langs = sorted(languages_data.items(), key=lambda x: x[1], reverse=True)
-            for lang, bytes_count in sorted_langs:
-                languages_list.append({
-                    'name': lang,
-                    'color': get_language_color(lang),
-                    'bytes': bytes_count
-                })
+        # Recolectar todos los lenguajes del repo
+        if repo.get('all_languages_list'):
+            all_languages.update(repo['all_languages_list'])
         
         projects.append({
             'title': repo['name'],
             'description': repo['description'],
-            'technologies': repo['language'],
-            'languages': languages_list,  # Nuevo: lista de lenguajes con colores
+            'technologies': repo['language'],  # Lenguaje principal
+            'languages': repo.get('languages', {}),  # Todos los lenguajes con porcentajes
+            'all_languages_list': repo.get('all_languages_list', []),  # Lista de todos
             'github_url': repo['github_url'],
             'live_url': None,
             'image_url': repo['image_url'],
@@ -72,19 +64,8 @@ def proyectos():
             'stars': repo['stars'],
         })
     
-    # Obtener tecnologías únicas para los filtros
-    all_techs = set()
-    for project in projects:
-        # Agregar todos los lenguajes del proyecto (no solo el principal)
-        if project['languages']:
-            for lang_info in project['languages']:
-                all_techs.add(lang_info['name'])
-        # También agregar el lenguaje principal como fallback
-        elif project['technologies']:
-            techs = [tech.strip() for tech in str(project['technologies']).split(',')]
-            all_techs.update(techs)
-    
-    technologies = sorted(list(all_techs))
+    # Obtener tecnologías únicas para los filtros (TODOS los lenguajes)
+    technologies = sorted(list(all_languages))
     
     return render_template('proyectos.html', projects=projects, technologies=technologies)
 
