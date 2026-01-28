@@ -75,8 +75,12 @@ def proyectos():
     # Obtener tecnologías únicas para los filtros
     all_techs = set()
     for project in projects:
-        if project['technologies']:
-            # Limpiar y agregar tecnologías
+        # Agregar todos los lenguajes del proyecto (no solo el principal)
+        if project['languages']:
+            for lang_info in project['languages']:
+                all_techs.add(lang_info['name'])
+        # También agregar el lenguaje principal como fallback
+        elif project['technologies']:
             techs = [tech.strip() for tech in str(project['technologies']).split(',')]
             all_techs.update(techs)
     
