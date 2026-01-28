@@ -15,6 +15,7 @@ class GitHubService:
     
     GITHUB_USERNAME = "NNorato123"  # Tu usuario de GitHub
     GITHUB_API_URL = f"https://api.github.com/users/{GITHUB_USERNAME}/repos"
+    GITHUB_LANGUAGES_API = "https://api.github.com/repos/{owner}/{repo}/languages"
     
     @classmethod
     def get_repos(cls):
@@ -47,12 +48,16 @@ class GitHubService:
                 # Formatear los repos
                 formatted_repos = []
                 for repo in repos_data:
+                    # Obtener lenguajes del repositorio
+                    languages = cls._get_repo_languages(repo['owner']['login'], repo['name'])
+                    
                     formatted_repo = {
                         'id': repo['id'],
                         'name': repo['name'],
                         'description': repo['description'] or 'Sin descripción',
                         'url': repo['html_url'],
                         'language': repo['language'] or 'No especificado',
+                        'languages': languages,  # Diccionario con todos los lenguajes
                         'stars': repo['stargazers_count'],
                         'updated_at': repo['updated_at'],
                         'image_url': None,  # GitHub no proporciona imagen
@@ -79,3 +84,26 @@ class GitHubService:
         """Limpiar el caché manualmente (útil para desarrollo)"""
         cls._cached_repos = None
         cls._cache_time = None
+    
+    @classmethod
+    def _get_repo_languages(cls, owner, repo):
+        """
+        Obtiene los lenguajes utilizados en un repositorio.
+        
+        Args:
+            owner (str): Propietario del repositorio
+            repo (str): Nombre del repositorio
+            
+        Returns:
+            dict: Diccionario con lenguajes y bytes de código
+        """
+        try:
+            url = cls.GITHUB_LANGUAGES_API.format(owner=owner, repo=repo)
+            response = requests.get(url, timeout=5)
+            
+            if response.status_code == 200:
+                return response.json()
+            else:
+                return {}
+        except requests.exceptions.RequestException:
+            return {}

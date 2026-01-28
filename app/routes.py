@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, jsonify, redirect, url_fo
 from app.models import Project, Skill, Experience, Education, BlogPost, ContactMessage
 from app import db, mail
 from app.github_service import GitHubService
+from app.language_colors import get_language_color
 from flask_mail import Message
 import os
 from functools import wraps
@@ -45,10 +46,24 @@ def proyectos():
     
     # Agregar repos de GitHub
     for repo in github_repos:
+        # Procesar lenguajes del repositorio
+        languages_data = repo.get('languages', {})
+        languages_list = []
+        if languages_data:
+            # Ordenar lenguajes por cantidad de bytes (mayor a menor)
+            sorted_langs = sorted(languages_data.items(), key=lambda x: x[1], reverse=True)
+            for lang, bytes_count in sorted_langs:
+                languages_list.append({
+                    'name': lang,
+                    'color': get_language_color(lang),
+                    'bytes': bytes_count
+                })
+        
         projects.append({
             'title': repo['name'],
             'description': repo['description'],
             'technologies': repo['language'],
+            'languages': languages_list,  # Nuevo: lista de lenguajes con colores
             'github_url': repo['github_url'],
             'live_url': None,
             'image_url': repo['image_url'],
