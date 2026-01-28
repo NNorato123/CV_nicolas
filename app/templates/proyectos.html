@@ -88,6 +88,28 @@
                 
                 <p class="project-description">{{ project.description }}</p>
                 
+                <!-- Mostrar lenguajes con colores de GitHub -->
+                {% if project.languages %}
+                <div class="languages-bar" style="display: flex; gap: 0; height: 6px; border-radius: 3px; overflow: hidden; margin: 0.8rem 0; background: #e5e7eb;">
+                    {% set total_bytes = project.languages|map(attribute='bytes')|sum %}
+                    {% for lang in project.languages %}
+                    {% set percentage = (lang.bytes / total_bytes * 100)|int %}
+                    <div 
+                        title="{{ lang.name }} - {{ percentage }}%"
+                        style="width: {{ percentage }}%; background-color: {{ lang.color }}; height: 100%;"
+                    ></div>
+                    {% endfor %}
+                </div>
+                <div class="languages-list" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    {% for lang in project.languages %}
+                    <span style="display: flex; align-items: center; gap: 0.3rem; font-size: 0.85rem; color: var(--text-muted);">
+                        <span style="width: 12px; height: 12px; background-color: {{ lang.color }}; border-radius: 50%;"></span>
+                        {{ lang.name }}
+                    </span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
                 <div class="tech-tags">
                     {% if project.is_github %}
                     <span class="tech-tag" style="background: #3b82f6;">{{ project.technologies }}</span>
