@@ -1,6 +1,7 @@
 """
 WSGI entry point para servidores de producción
 Compatible con: Gunicorn, uWSGI, etc.
+Usado por Render y otros hosting
 """
 
 import os
@@ -11,5 +12,4 @@ load_dotenv()
 
 from run import app
 
-if __name__ == '__main__':
-    app.run()
+# Variable 'app' es lo que Render (y otros servidores) buscan

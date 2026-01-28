@@ -4,6 +4,12 @@ from app.models import Project, Skill, Experience, Education, BlogPost
 
 app = create_app()
 
+# Configuración para Render (debe estar en el bloque principal)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    # host='0.0.0.0' permite que se acceda desde cualquier dirección (necesario en Render)
+    app.run(host='0.0.0.0', port=port, debug=False)
+
 @app.shell_context_processor
 def make_shell_context():
     return {
